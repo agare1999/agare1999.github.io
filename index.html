@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Lightbox overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Advanced Photo Gallery</h1>
+    
+    <div class="gallery">
+
+
+
+<img src="https://lh3.google.com/u/0/d/11VnbdHWFAvZxUJfQPoSWTaJ_zDs0gSYY=k" alt="DSC_3274.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/10QdZ3kJjRCJOuWm9_b5A63UrM2BVEmP9=k" alt="DSC_3144.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11WPr2zNSo_JplhEisJVL0p64gZO50r5P=k" alt="DSC_3269.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11Vt6qisMIO0EOaTHFNasYh9JCaKx84UK=k" alt="DSC_3271.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11VzQ1QS2CAsIecVu6tjAOaryfadFa6X5=k" alt="DSC_3270.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11XEHK0wvEG7yhxf92uCpPCsMhBV72dUv=k" alt="DSC_3263.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11WQue4eDtepHnZ7IWha0T7kbzoYgbP0j=k" alt="DSC_3267.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11XD5RzhGuJ401WAiepVM-QqYHzucBY1X=k" alt="DSC_3265.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11WabaZ2VA5QK8qpv840C65rO2YwqXmCr=k" alt="DSC_3266.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11_C8l9C6AjRT1E0N-jKV5ZZDS1zZ29ZT=k" alt="DSC_3261.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11Z4I8BujMZ-cV5g7r98SDpPe_44FwMi0=k" alt="DSC_3262.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11_auCf4HIMPcATC7_2bvMd6WNzgkit6R=k" alt="DSC_3257.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/10tdA5o5HQ85vmD0G7a3YOn19WEM1Q4Np=k" alt="DSC_3197.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12af42lrjP4URWvF3gVt5ZAUBKPki7PBy=k" alt="DSC_3443.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13FWtEqSrOZrdHTA8T39oGK9_wyEWL7KU=k" alt="DSC_3442.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13FnVgR0U5tuDfiQp6dz6pEyC6pGC0nhj=k" alt="DSC_3441.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/132pbKCh_c-7poK7TAcq_P6yC6HxGrzfn=k" alt="DSC_3440.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/138aTdVQpKv2K3AE8YzKeD3JlphCrgsbL=k" alt="DSC_3437.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13IF007-ADIZjq82fnwQAJK_kzNsG-mrb=k" alt="DSC_3436.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13A_9apBfCvbWMziPs21JVbAIBDh-1WTO=k" alt="DSC_3435.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12WeklYSNck5u00gcpx0_T717-hsriv_Z=k" alt="DSC_3434.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13B1gZvbIrFjFkZ0DX-_35wN49qVteccE=k" alt="DSC_3433.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13C31gSPVoBL_JRql7R9sOBgk9vskjoXZ=k" alt="DSC_3432.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13C_VcHnSO5Ko8YkP2Qyi2w-bLn-vTxid=k" alt="DSC_3431.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13DN7jBDUe1TtAetkHm_L3680Qu29oa1F=k" alt="DSC_3430.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13DaMBZD1oDnksgOhnZVaVFmAL23UIO3e=k" alt="DSC_3429.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13EMDOG-LTj4ChVGOyMiM0eHmm0sEAwi3=k" alt="DSC_3428.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/133VDGAI_uwqkrIQ6DuKVB1ntMpJmJlc8=k" alt="DSC_3427.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/135SEWlI8Y_PovXaUhqEJSXEcySNMV8aX=k" alt="DSC_3426.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13657ngqfq1WhpPRorwIgwPUmKyOdYvIH=k" alt="DSC_3425.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/136nebaekIX0cyXcQVA3pT0VguFVXargu=k" alt="DSC_3424.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/1373kaesbbx328eeW_I2zgbHJpEvKe6MY=k" alt="DSC_3423.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/137QU2CG6bTo-eQMgQ3YAyouik4bHAb0W=k" alt="DSC_3422.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/137eJhclG9qPF6BjM__MAWL-u83hWrAPm=k" alt="DSC_3420.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/138HgFiMC5BSLLHhxayo2KxbiSg-_c36X=k" alt="DSC_3419.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12unEATTfDeHIq2hr5tqVU0o_p3WCDGLN=k" alt="DSC_3418.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12vAQmwgm1weYTsOBGSNsCj7CDXrv60D8=k" alt="DSC_3417.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12wvdBdovJ7aWfK43R-8lATK7bqUN3IbV=k" alt="DSC_3416.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12wz02V9UtymJ4yUvWSf2PKNoM5ycUmLS=k" alt="DSC_3413.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12xhvhdAUQuiwjOPIbTdgC6tGoseeyRTr=k" alt="DSC_3412.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/13-A8YKfraiFV6J-sJ7vND5H22pVIkD62=k" alt="DSC_3411.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/130PeL8GpDvuRBlOe-Ta7HRXGhBPKS3Aj=k" alt="DSC_3410.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/130wirYk9S1SgP7Dj_hRYlqCuZVUuW9cn=k" alt="DSC_3409.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12pQEIuGtCxOCST_Y738xA1_3BF6vutmt=k" alt="DSC_3408.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12qcHfdTUt4UX1HGSftvBUbvzCI129ig6=k" alt="DSC_3407.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12qzSyrtNg1tIWin5bIKXNLSxAsoz1On7=k" alt="DSC_3406.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12rjFwVte-GxZxCAp0Hc7euGnGIdE96dB=k" alt="DSC_3405.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12s0Xd_5MoJLcM75EL__n-bleD6ow6vsK=k" alt="DSC_3404.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12sd7I8RTdCHVRVZiWVHxjkRUzz9jQHUN=k" alt="DSC_3403.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12sf-n0TTwDVOd-BsxFI2Kh1rZGxxX3Lg=k" alt="DSC_3402.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12sy6tRZwViElAyFz_4IM9dBZn7T6GfEx=k" alt="DSC_3401.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12uV-y_4xN72AbCHn2LPmKhh2JFCeOG3x=k" alt="DSC_3399.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12lXJTkTd3KhGT5Lth5JoW5moEeDA4kY-=k" alt="DSC_3398.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12m0X5jBFb5WvWltqvdhzJovcJJjzj3bc=k" alt="DSC_3397.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12m_mxpqBF9rv4QdjQ4ASWUsedee51xJg=k" alt="DSC_3395.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12o1458GLVF-eor1edKL5uDm2GWMmD92i=k" alt="DSC_3394.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12oC1tYa-hFcqlA14U8EOgZUdkmlt7gRd=k" alt="DSC_3393.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12obymOStX94JDYYu6Y2g8J0cr2ZdILyC=k" alt="DSC_3392.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12p6_r0ZrLSjShGkFLCcekh41D21R0aD3=k" alt="DSC_3391.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12pDYBlds_nExak5PKgnUq4oCbd6B0Hft=k" alt="DSC_3390.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12pGUzI6yAWqJxK0uLcBSsJrx-MN4mH8S=k" alt="DSC_3389.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12giIYIBFsjwDP630CTm_buY5wwW-q4hs=k" alt="DSC_3388.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12h7iKhwv0Ep0LXdr1zTOoirJOTjI_DIA=k" alt="DSC_3387.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12h_tdp2Rh-C6hoqzlMpYwuIA8y8h_gf3=k" alt="DSC_3386.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12iMrmVBgjKH6cZXsT3TFaiHjJBSPBkSj=k" alt="DSC_3383.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12iajh5IUP7M3wK9EnG5IKDc7w6cHZViC=k" alt="DSC_3382.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12jIeN8k7SjNYeGkfZyQzU_e0OG_3c07U=k" alt="DSC_3381.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12jKSC_0VHBkihO5KkFAmfi40ud-rbyvX=k" alt="DSC_3380.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12jiVniZ7-1TtiP50f9tgpd7CUgUrmVG0=k" alt="DSC_3379.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12jjlb-diFr_S2rxmrkDpuxm5-ObRdwRP=k" alt="DSC_3378.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12jmvc8QkYTLWzBpxmLb8THBUXAfHq3Dr=k" alt="DSC_3377.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12bJY0aaL_HKG4eSdVGFBvcDELSlT9TQg=k" alt="DSC_3376.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12bijOS87aZmi1AkAUmvJXFyocGIX6h0A=k" alt="DSC_3375.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12cAOiv3DPkUiBeLux6CyTOydC7flP4qW=k" alt="DSC_3374.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12czBuVSFFJQlxW_8ccJNh1mZZ6rAAme7=k" alt="DSC_3373.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12eKXWQQyuE-zxMJJO-E9x2G8kiDm-xXk=k" alt="DSC_3372.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12fQeRKy2M_UbdQWCbK48E-HgQ8gMgyiO=k" alt="DSC_3371.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12foNFQz0ikY5_7oKpsSSPpjjzfHuQG_2=k" alt="DSC_3370.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12gDku1ajkRUgbTMW5CLoDEjwhUYiMfa9=k" alt="DSC_3369.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12gSbpw6rjWNVHnid584Q1FZozBCqrogu=k" alt="DSC_3368.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12WtIuAfiaOSh23EvV7LzahJC3MueYlsU=k" alt="DSC_3367.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12XFpRUjO3qD8eKeei-OGs_UkBEudVaZi=k" alt="DSC_3366.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12XO1EWMlSTlI5gT_dTnGdZllBU0Wg5ZP=k" alt="DSC_3365.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12XSSXyKAWAZdtEPd6_60PqKEknikRmW5=k" alt="DSC_3363.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12YSU5KNciZvTeF8FpZk32UYfI6FJv6Or=k" alt="DSC_3361.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12YwOJoan6W2xm0VENKr0b5UzXxyRstHI=k" alt="DSC_3360.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12ZC0EvYkYkljwfTufrdbHSd4gIs7l7xU=k" alt="DSC_3359.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12ZIpq_nLV1kR_pYdcan5A1ZCqPL5OCMx=k" alt="DSC_3358.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12_E3hMfCMHocv7insJWmfq0sYlpP6p3P=k" alt="DSC_3357.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12a6dY4gZi9fKLYIviYCTS9XzY7XQ8XIX=k" alt="DSC_3356.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12S1-7H8QnMgqCbbHmGFsx41WUtH0Wrzi=k" alt="DSC_3355.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12TCIy7mid4QiT8aCIgceLO0xtrtBtUq-=k" alt="DSC_3353.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12UB0XpTFGhZ72dkNVcLL9sk0wAjuxEl_=k" alt="DSC_3352.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12Ucdzuq89DOWGLKn4QOwfDV5cq1tCMWF=k" alt="DSC_3351.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12UphmI_-x_uloF2uraUZNIIiEJbLS8PE=k" alt="DSC_3350.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12Uq4B6VR5bGorv56LcHbSuplQvUTmh4_=k" alt="DSC_3348.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12V9YMY0fQqti3riJjNihkUyH8VUwcgdM=k" alt="DSC_3347.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12VNKjbfUh1smLUKuGU6DGbfDPbgRIGCl=k" alt="DSC_3346.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12VWwVrlw6jnQKdtXNXZUYJ2h2cGUlwrC=k" alt="DSC_3345.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12WAdDkuX53XVoYeTFm4QpRZgb0g8yQ-E=k" alt="DSC_3344.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12WUQJ3x7sDfYHzm3bw1UFYxO4sOQSoxp=k" alt="DSC_3343.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12KmlgLxuS8Fouf07W6Zg5uLIj_9djPH2=k" alt="DSC_3342.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12LKskO_Ses_ghsECscFi0v8d9AX9KwZX=k" alt="DSC_3341.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12MFe3pzjhWIu41FX9ArYpIBfZejQ2L0q=k" alt="DSC_3340.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12ONGbBJ5GqM7ikhq6e7fBFspG_IlL2OJ=k" alt="DSC_3339.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12OUsYS9MIINqg8JzrjXm-ZHkddkyr1C8=k" alt="DSC_3338.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12PBWDQc3dvNbERR4lGEwKLnHdVApAqa1=k" alt="DSC_3337.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11v6CjqapXsF-rTfztxe4NXt75FV7MYBh=k" alt="DSC_3336.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12QXCaVgrPYAwk07LFFolD3W5RxEk7Io7=k" alt="DSC_3335.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12QsaZtuQjHCDnzAbt_3VQ76PiSerg5Ma=k" alt="DSC_3334.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12R7hjuQ_zqY-BRTkVPUxfh9Hdw1glsur=k" alt="DSC_3331.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12RNZIrk8e-FmWhpFHlslJMw8X6FGZnOU=k" alt="DSC_3330.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12B9P8Uh9nRkhKHIb7DrJoO1Pt5d6slDe=k" alt="DSC_3329.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12BoDuQcHS3xpnmcp3bHgdkd80DAcMJya=k" alt="DSC_3328.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12CqgP-YJQqduB5lB8f7h3t_Elp5mYW5V=k" alt="DSC_3327.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12EA6LI8a7aJDNhBtSRqz028osS8OIfUz=k" alt="DSC_3326.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12Ez9VRO6faLIuZiJRjmvdbQT4ivyv-7a=k" alt="DSC_3325.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12H-tUo5ls5Um-aVLQw7t8VJ2wmS3Tu07=k" alt="DSC_3324.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12HL3-l-L5M-0dKBTDrNeX1UMYQKBr2SD=k" alt="DSC_3323.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12I-DEGN3MdKejL5ztjXyqcQ4x3gwN_y5=k" alt="DSC_3322.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12J30vxiVklPXfS1MNeqW0hXibEB5q2f5=k" alt="DSC_3321.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12KMR9VDa0VgcBB2QBzRUOXC06PBi2ISS=k" alt="DSC_3320.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12KZrh0bjW0Y-w6ZHJElJomvEOvpx1CAK=k" alt="DSC_3319.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/120RS1dGlm3g3eHWsuZwucc7ygzp-_KHQ=k" alt="DSC_3318.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/120dD7SKb926R7_AGywtgBIYQ1ExY-47F=k" alt="DSC_3317.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/1212QMmWyxvqY30YdGMgpYWRViC5d--Yb=k" alt="DSC_3316.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/121HL2ouJju0P7KpI7WYz9NEMAHqmZlCI=k" alt="DSC_3315.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/121VjB8GAHj8zjFmGlCt7MJUy58p37nGu=k" alt="DSC_3314.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/122ixU3jzHECEePgvlaXV-us2iJ9rx7nM=k" alt="DSC_3313.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/1257PkjC5RbMgArKjQP7V0FdSjbx6P93Y=k" alt="DSC_3312.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/1260J9D-tAjglxs7iyRet0786shL9mLaM=k" alt="DSC_3311.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/126mvSGq0CrRtKTtTtsNxpvsjZsvlA6FA=k" alt="DSC_3310.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/127CRrORjQogDA7aaGs1mX1B52dqkfwsG=k" alt="DSC_3309.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/128wNn4tn2ongwgpN24qNFssJh1hhdZ85=k" alt="DSC_3308.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11vGD5PfNfdfNfmn3gLReiTGWy2q5DQLp=k" alt="DSC_3307.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11vdlZjjJJGTjMmNiXzELs2-VW55n6woY=k" alt="DSC_3306.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11x0uMRjKPmmuzoV7B382AqHOqSNw-Ilq=k" alt="DSC_3305.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11x9VOfAgcvP0G4-Kv_Dxg0qisd4zuR8v=k" alt="DSC_3304.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11x_Li1Z1LexnjIjLpvZWj4hAMrrtzlNe=k" alt="DSC_3303.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11xg8gwSkRCHp0k7-YzdbywfnbtXlhQn2=k" alt="DSC_3302.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11yE7Ch5kptLM8nEZ5_ACzn5me21UMiD3=k" alt="DSC_3301.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12-UYJ3FSQrS7XahYoTbQmrTRvB0onoAH=k" alt="DSC_3300.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/12-ooHGjtPbP8awqkZVCYkyaC9CiuURSQ=k" alt="DSC_3299.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/1201LXI93TCA8b6VG30CyEOVgFfWtr6pE=k" alt="DSC_3298.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/120B_ZjCv4O3XUJOfjmv9fEXrGnDXObUj=k" alt="DSC_3297.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/120RJCrtUdzeQBP3aT6k2SHLtz7Ns4gVt=k" alt="DSC_3296.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11nIy7y6ZjQS5zwiX_kkW8eMYUQVZMMXk=k" alt="DSC_3295.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11o-I_gYyr0rEo-v7-NlR1Dip-fN-ngHv=k" alt="DSC_3294.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11qir8imC6Uk0_1QdIds9WsQU61PElhX5=k" alt="DSC_3293.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11r30df5p89zavthSeWqlSARs-UlUlB3k=k" alt="DSC_3292.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11rkE8-HFwfrGNgINj6Kca99fgJKyRXnW=k" alt="DSC_3291.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11sPNyhqL7c9HFf_f3rQGZKq2CAxDvjZk=k" alt="DSC_3290.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11sjoGJLjVK116v9B2w0l2aeA50gOeNIC=k" alt="DSC_3289.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11tsUB9Nk2wp31e8dUxMmrKyB11hsw-jh=k" alt="DSC_3288.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11umpsGieyAmDTBSv-5hwx0-Wi_Wb4klj=k" alt="DSC_3287.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11eTNMFZSjeofr311VTv_cWy1qRmQ3exV=k" alt="DSC_3286.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11eqKqBoi7a2vttUV4YRkfmWt_b6VJiyC=k" alt="DSC_3285.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11gBiaEIsUuYDD7Qj1_CG-r1JNASQNJXv=k" alt="DSC_3284.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11gxkozBup8ipApVb0_jcrlYcbagb-qmy=k" alt="DSC_3283.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11jA_jCFJgdT9uV_szVHHzMlEyGlZPw9T=k" alt="DSC_3282.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11kNBrjC9v4uK6UXaF_T3LVogxRAHSM4V=k" alt="DSC_3281.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11lMuYljg5cVQNJCKmz2hUqWNo_y-E1mL=k" alt="DSC_3280.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11_dB6AXK9S_B8JMVTcqKbcqyfEBYHIBy=k" alt="DSC_3279.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11lcoHpH5P-aRSHeuqxFZD5tL8WDOultJ=k" alt="DSC_3278.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11m_GADeMftxHmsWOgwde46rgmmrRqhFH=k" alt="DSC_3277.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11mznBuqYsao9eyyyyvtoItc6eeeQZZDt=k" alt="DSC_3276.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11a0Yd5dvEnTDYhodfFOGbIAvA5JLBuIs=k" alt="DSC_3275.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11aFUkfNWMKcaVS_yh1by2TzEMssJwq8r=k" alt="DSC_3273.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11b8WGD2OHSynJ_8JFJfvs3oD4LCZ8q9W=k" alt="DSC_3272.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11Q40T09zpw5a_jnpDTHNr9FrbvdiJ5xX=k" alt="DSC_3268.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/116a0lo03whJodjN_vjqk79QnC3f6c618=k" alt="DSC_3264.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/111pyHxG4TwgLZYgxvAOgKoUJxlnI-Jfi=k" alt="DSC_3260.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/10GOfUkB-MfvJB_6I1HXtAxxrMUrhDkjZ=k" alt="DSC_3259.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/1-oVbTdIMA3iFwwxrKLmbzvkEXqJEQRk3=k" alt="DSC_3258.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11QP6dnyZKswYErtp594vAQdnrST4xn8f=k" alt="DSC_3256.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11R2857lM2s8PNFAip5x3eHNStKxwaeE9=k" alt="DSC_3255.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11RJxpSu4CEmv6x35pTNPzUAID2MH3PJn=k" alt="DSC_3254.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11RdfKXMIEu-n3GWr3gudtMm71cJmH2qT=k" alt="DSC_3253.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11RpNdnUARllKWdzVKERbHN8VtTgJswFV=k" alt="DSC_3252.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11S6GRQSg3KIHgtwL0YIcqjRGRVOGVRNN=k" alt="DSC_3251.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11HeoJUa0T6js87isGHLv-_6bQpVKZ2wF=k" alt="DSC_3250.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11VfNkOPBtPuAPwpg3vLh32FMmELoryZs=k" alt="DSC_3249.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11LDj1QBJVZRHBu7Ke_kzef4W0OAIfuaj=k" alt="DSC_3248.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11M1YKu1O0Dcs-kuduQT-Qq2yNutJGrRH=k" alt="DSC_3247.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11M4soiJ05xWnKlf4kx5QIl9-Pl2aTlt5=k" alt="DSC_3246.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11MgBxTQrnLwpi4SRpgr5iLJn1pdQ7fe-=k" alt="DSC_3245.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11OO7CuOR_trR9AGVqJs8fxlG2OaZx9Ek=k" alt="DSC_3244.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11OSM3rdvywHyoqkBL0vrvaeMMINDMAC5=k" alt="DSC_3243.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11CztzORn5ZaYx-pTwxCS6IeP3GL73-5E=k" alt="DSC_3242.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11P4DYNgwWvFQnU2kunw8saXwuPzaa8re=k" alt="DSC_3241.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/105aJLKzZ6maRouW-eV3jqrHwSPZf6i3Z=k" alt="DSC_3240.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11PUtA2cLl1hhO8yPLZ8C2rhPxcUdmJkL=k" alt="DSC_3239.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11Pz5Uw8F3KBYKiY_U5hTax9yXFTv8b0x=k" alt="DSC_3238.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11DnmakhuL6ZjpmPwIYLmfgv19b8ehdI3=k" alt="DSC_3237.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11E9blCIh8fYessxJapp8T6Bxgp2cd5BY=k" alt="DSC_3236.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11EZri9_txYWYNB8MOzYFeQFlPoTB6InE=k" alt="DSC_3235.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11El562Wj6Kef18a4wE7x5e8ZTAcdAW6D=k" alt="DSC_3234.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11F9wYAhuQ3CWrumD0NL3cUy0JNGlLPOF=k" alt="DSC_3233.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/11Ff-A_XbYv6d7e8FbqlzBYUhPInjwI9r=k" alt="DSC_3232.jpg" class="gallery-item">
+<img src="https://lh3.google.com/u/0/d/1-Vk2BJlA0mTjgQEztHb84145tWeCzgx7=k" alt="DSC_3231.jpg" class="gallery-item">
+
+
+
+
+
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Full-size photo">
+    </div>
+
+    <script>
+        // Function to open lightbox
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        // Function to close lightbox
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Adding event listeners to gallery images
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                openLightbox(item.src);
+            });
+        });
+    </script>
+
+</body>
+</html>
