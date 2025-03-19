@@ -1,0 +1,48 @@
+Sub SaveBTN()
+
+
+
+    Dim ws As Worksheet
+    Dim lastValue As Integer, i As Integer
+    Dim saveLocation As String, fileName As String
+    
+    ' Ask for the last value of cell A6
+    lastValue = InputBox("Enter the last value for cell A6:", "Last Value")
+    If Not IsNumeric(lastValue) Then
+        MsgBox "Invalid input. Please enter a numeric value.", vbExclamation, "Error"
+        Exit Sub
+    End If
+    
+    ' Ask for save location
+    saveLocation = InputBox("Enter the folder path to save PDFs:", "Save Location")
+    If saveLocation = "" Then Exit Sub
+    
+    Set ws = ActiveSheet
+    
+    ' Loop through values from 1 to lastValue
+    For i = 1 To lastValue
+        ws.Range("A6").Value = i
+        fileName = saveLocation & "\" & i & ".pdf"
+        
+        ' Ensure directory exists before saving
+        If Dir(saveLocation, vbDirectory) = "" Then
+            MsgBox "Invalid save location. Please check the path.", vbExclamation, "Error"
+            Exit Sub
+        End If
+        
+        ' Save as PDF
+        On Error Resume Next
+        ws.ExportAsFixedFormat Type:=xlTypePDF, fileName:=fileName, Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas:=False
+        If Err.Number <> 0 Then
+            MsgBox "Error " & Err.Number & ": " & Err.Description, vbExclamation, "Export Error"
+            Exit Sub
+        End If
+        On Error GoTo 0
+    Next i
+    
+        ' Open folder where files are saved
+    Shell "explorer.exe " & saveLocation, vbNormalFocus
+
+
+
+End Sub
