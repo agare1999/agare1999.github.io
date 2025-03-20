@@ -5,142 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar-custom {
-            background-color: #444;
-        }
-        .navbar-custom .nav-link {
-            color: #f4f4f9;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .navbar-custom .nav-link:hover {
-            background-color: #ddd;
-            color: #444;
-        }
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            margin: 0 5px;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-        .tab:hover {
-            background-color: #ddd;
-            border-color: #bbb;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s, opacity 0.3s;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            opacity: 0.9;
-            max-width: 300px;
-        }
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            filter: brightness(1.1);
-            opacity: 1;
-        }
-        .navbar-brand img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        .preview {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            border-radius: 20px;
-        }
-        .preview img {
-            max-width: 100%;
-            border-radius: 20px;
-            max-height: 80vh;
-        }
-        .preview .close-btn, .preview .download-btn {
-            margin-top: 10px;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #444;
-            color: white;
-            border: none;
-            transition: background-color 0.3s;
-        }
-        .preview .close-btn:hover, .preview .download-btn:hover {
-            background-color: #666;
-        }
-    </style>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <span style="color: #f4f4f9;">Z. P. School Takali Bk.</span>
+            <span class="navbar-brand mb-0 h1">Z. P. School Takali Bk.</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                <li class="nav-item"></li>
+                    <a class="nav-link btn-dark" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" onclick="showCategory(event, 'all')">Gallery</a>
+                    <a class="nav-link btn-dark" href="#" onclick="showCategory(event, 'all')">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link btn-dark" href="#">Contact</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="tabs">
-        <div class="tab" onclick="showCategory(event, 'combine')">Combo</div>
-        <div class="tab" onclick="showCategory(event, 'personal')">Personal</div>
-        <div class="tab" onclick="showCategory(event, 'teachers')">Teachers</div>
+    <div class="d-flex justify-content-center my-3">
+        <div class="btn-group" role="group" aria-label="Gallery Categories"></div>
+            <button type="button" class="btn btn-light mx-2 px-4 shadow" onclick="showCategory(event, 'combine')">Combo</button>
+            <button type="button" class="btn btn-light mx-2 px-4 shadow" onclick="showCategory(event, 'personal')">Personal</button>
+            <button type="button" class="btn btn-light mx-2 px-4 shadow" onclick="showCategory(event, 'teachers')">Teachers</button>
+        </div>
     </div>
 
-    <div class="gallery" id="gallery">
+    <div class="gallery d-flex flex-wrap justify-content-center" id="gallery" style="gap: 15px; padding: 20px;">
         <!-- Images will be inserted here -->
     </div>
 
-    <div class="preview" id="preview">
-        <img id="preview-img" src="" alt="Preview">
-        <div style="text-align: center; margin-top: 10px;">
-            <button class="close-btn" onclick="closePreview()">Close</button>
-            <button class="download-btn" onclick="downloadImage()">Download</button>
+    <style>
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 70%; /* Initially invisible */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            opacity: 1; /* Fully visible on hover */
+        }
+
+        .gallery img.loaded {
+            opacity: 1; /* Make visible when loaded */
+        }
+    </style>
+
+    <script>
+        function showCategory(event, category) {
+            event.preventDefault();
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            images[category].forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = category;
+                img.classList.add('loaded'); // Add class to make visible
+                img.onload = () => img.classList.add('loaded'); // Ensure visibility after loading
+                img.onclick = () => showPreview(src);
+                gallery.appendChild(img);
+            });
+        }
+    </script>
+
+    <div class="modal fade" id="preview" tabindex="-1" role="dialog" aria-labelledby="previewLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="previewLabel">Image Preview</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="preview-img" src="" alt="Preview" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="downloadImage()">Download</button>
+                </div>
+            </div>
         </div>
-        </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -426,7 +384,7 @@
             const preview = document.getElementById('preview');
             const previewImg = document.getElementById('preview-img');
             previewImg.src = src;
-            preview.style.display = 'block';
+            $('#preview').modal('show'); // Use Bootstrap modal to display the preview
         }
 
         function closePreview() {
@@ -438,7 +396,8 @@
             const previewImg = document.getElementById('preview-img');
             const link = document.createElement('a');
             link.href = previewImg.src;
-            link.download = previewImg.src.split('/').pop();
+            link.download = '';
+            link.target = '_blank';
             link.click();
         }
     </script>
